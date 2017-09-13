@@ -5,6 +5,7 @@ import json
 from itertools import cycle
 
 pid = 1
+no_of_participants = 6
 experiments_lst = []
 
 techniques_lst = [
@@ -23,7 +24,7 @@ number_of_trials_per_cond = 3
 
 for idx in range(pid):
     granularity = next(granularity_lst)
-    techniques = techniques_lst[0] if (idx < pid/2) else techniques_lst[1]
+    techniques = techniques_lst[0] if (idx < no_of_participants/2) else techniques_lst[1]
 
     for technique in techniques:
         for gran in granularity:
