@@ -1,13 +1,19 @@
-What is bandwidth? Width of the band of frequencies between the half power points.
+What is absorption? Loss or dissipation of energy as it travels through a medium. Example: radio waves lose some of their energy as they travel through that atmosphere. What about this... Hello there
 
-What is barrier potential? The natural difference of potential that exists across a forward biased pn junction.
+What is acceptor atoms? Trivalent atoms that accept free electrons from pentavalent atoms.
 
-What is base biasing? A method of biasing a BJT in which the bias voltage is supplied to the base by means of a resistor.
+What is AC coupling? Circuit that passes an AC signal while blocking a DC voltage.
 
-What is battery? A DC voltage source containing two or more cells that convert chemical energy to electrical energy.
+What is AC/DC? Equipment that will operate on either an AC or DC power source.
 
-What is binary? A number system having only two symbols, 0 and 1. A base 2 number system.
+What is AC generator? Device used to transform mechanical energy into AC electrical power.
 
-What is bipolar junction transistor? (BJT), A three terminal device in which emitter to collector current is controlled by base current.
+What is AC load line? A graph representing all possible combinations of AC output voltage and currentfor an amplifier.
 
-What is bistable multivibrator? A multi vibrator with two stable states. An external signal is required to change the output from one state to the other. Also called a latch.
+What is AC power supply? Power supply that delivers an AC voltage.
+
+What is active component? A component that changes the amplitude of a signal between input and output.
+
+What is active filter? A filter that uses an amplifier in addition to reactive components to pass or reject selected frequencies.
+
+What is active region? The region of BJT operation between saturation and cut off used for linear amplification.

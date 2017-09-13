@@ -80,11 +80,11 @@ var ACPToolKit = (function () {
             currentTrialOptions = options;
 
             var data_file = options.data_file;
-            var stimuli = options.stimuli;
+
 
             $('.js-expt-technique').text(options.technique);
             $('.js-expt-granularity').text(options.granularity);
-            $('.js-expt-stimuli').text(options.stimuli);
+            $('.js-expt-windows').text(options.windows);
 
             // Clean up DOM
             wm.destroyAllWindows();
@@ -104,28 +104,50 @@ var ACPToolKit = (function () {
                     break;
             }
 
-            var iface = new AutoComPaste.Interface(wm, engine, data_file);
+            var window_callback = function(windowData) {
+              // debugger;
+              var randomized_input = pickRandomProperty(windowData);
+              var stimuli = "";
 
-            // Highlight the relevant text.
-            iface.addEventListener('loaded', function () {
+              switch (options.granularity){
+                case 'phrase':
+                  stimuli = extractPhrase(randomized_input);
+                  break;
+                case 'sentence':
+                  stimuli = extractSentence(randomized_input);
+                  break;
+                case 'paragraph':
+                  stimuli = extractParagraph(randomized_input);
+                  break;
+              }
+
+              $('.js-expt-stimuli').text(stimuli);
+
+              // Highlight the relevant text.
+              iface.addEventListener('loaded', function () {
+                // debugger;
                 var lines_to_highlight = stimuli.split("\n\n");
 
                 var windows = wm.getWindowList();
                 for (var i = 0; i < windows.length; i++) {
-                    if (windows[i] == 'text_editor') {
-                        continue;
-                    }
+                  if (windows[i] == 'text_editor') {
+                    continue;
+                  }
 
-                    var win = wm.getWindowContent(windows[i]);
-                    var content = $(win).find('pre').html();
-                    lines_to_highlight.map (function (value, index, array) {
-                        content = content.replace (value,
-                        "<span class=\"highlighted\">" + value + "</span>");
+                  var win = wm.getWindowContent(windows[i]);
+                  var content = $(win).find('pre').html();
+                  lines_to_highlight.map (function (value, index, array) {
+                    content = content.replace (value,
+                      "<span class=\"highlighted\">" + value + "</span>");
                     });
 
-                  $(win).find('pre').empty().append(content);
-                }
-            });
+                    $(win).find('pre').empty().append(content);
+                  }
+                });
+            }
+            // var numOfWindows = 4;
+            var iface = new AutoComPaste.Interface(wm, engine, data_file, options.windows, window_callback);
+
         }
 
         module.getCurrentTrialState = function () {
@@ -144,3 +166,47 @@ var ACPToolKit = (function () {
 
     return module;
 })();
+
+function extractSentence(txt){ //Derived from stackoverflow
+  sentences = txt.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
+  return sentences[getRandomInt(0, sentences.length)];
+}
+
+function extractPhrase(txt){
+  random_sentence = extractSentence(txt);
+  words = random_sentence.split(/[ ,]+/);
+  words.pop();
+  var random_length = getRandomInt(3,4);
+  var random_start = getRandomInt(0, words.length - random_length);
+  words = words.slice(random_start, random_start + random_length);
+  return words.join(' ');
+}
+
+function extractParagraph(txt){
+  sentences = txt.split("\n\n");
+  return sentences[Math.floor(Math.random() * sentences.length)];
+}
+
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, min = i - size, temp, index;
+    while (i-- > min) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(min);
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function pickRandomProperty(obj) {
+    var result;
+    var count = 0;
+    for (var prop in obj)
+        if (Math.random() < 1/++count)
+           result = obj[prop];
+    return result;
+}

@@ -35,59 +35,133 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h1>Pre-Experiment Questionnaire</h1>
                     <hr>
-                    <p>This part of the interface collects whatever pre-experiment information. Please come up with a basic questionnaire to help you to gather participant information. The purpose of this questionnaire is to report the participant data and convince readers that you have picked an appropriate target user group and the result has certain generalizability.</p>
+                    <p>Before we start the experiment, we would like to collect some information that would help us in analysing and understanding our results better.</p>
 
-                    <p>Please put all information needed for participant: <span class="js-pid pid"></span></p>
-
+                    <p>Kindly fill in the following questionnaire participant <span class="js-pid pid"></span>.</p>
+                    <br>
                     <form id="pre-expt-form">
                         <div class="form-group">
-                            <label for="q1">Question 1 - Text</label>
-                            <input type="text" class="form-control" id="q1" name="q1" placeholder="Enter answer">
+                            <label for="q1">Question 1 - What is your name?</label>
+                            <input type="text" class="form-control" id="q1" name="q1">
                         </div>
+
+                        <br>
+
                         <div class="form-group">
-                            <label for="q2">Question 2 - Radio</label>
+                            <label for="q2">Question 2 - What is your gender?</label>
                             <div class="radio">
                               <label>
-                                <input type="radio" name="q2" id="optionsRadios1" value="radio1">
-                                Radio response 1
+                                <input type="radio" name="q2" id="optionsRadios1" value="Male">
+                                Male
                               </label>
                             </div>
                             <div class="radio">
                               <label>
-                                <input type="radio" name="q2" id="optionsRadios2" value="radio2">
-                                Radio response 2
+                                <input type="radio" name="q2" id="optionsRadios2" value="Female">
+                                Female
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="q2" id="optionsRadios3" value="Unspecified">
+                                Unspecified
                               </label>
                             </div>
                         </div>
+
+                        <br>
+
                         <div class="form-group">
-                            <label for="q3">Question 3 - Checkbox</label>
-                            <div class="checkbox">
+                            <label for="q3">Question 3 - What age group do you belong to?</label>
+                            <div class="radio">
                               <label>
-                                <input type="checkbox" name="q3" value="checkbox1">
-                                Checkbox response 1
+                                <input type="radio" name="q3" id="optionsRadios4" value="15-25">
+                                15-25
                               </label>
                             </div>
-                            <div class="checkbox">
+                            <div class="radio">
                               <label>
-                                <input type="checkbox" name="q3" value="checkbox2">
-                                Checkbox response 2
+                                <input type="radio" name="q3" id="optionsRadios5" value="25-45">
+                                25-45
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="q3" id="optionsRadios6" value="45-60">
+                                45-60
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="q3" id="optionsRadios7" value="60+">
+                                60+
                               </label>
                             </div>
                         </div>
+
+                        <br>
+
                         <div class="form-group">
-                            <label for="q4">Question 4 - Select Options</label>
+                            <label for="q4">Question 4 - What is your highest education level thus far (or working towards)?</label>
                             <select class="form-control" name="q4">
-                                <option value="option1">Option response 1</option>
-                                <option value="option2">Option response 2</option>
-                                <option value="option3">Option response 3</option>
-                                <option value="option4">Option response 4</option>
-                                <option value="option1">Option response 5</option>
+                                <option value="Secondary">Secondary</option>
+                                <option value="JC/Polytechnic">JC/Polytechnic</option>
+                                <option value="College Degree">College Degree</option>
+                                <option value="Graduate Degree">Graduate Degree</option>
+                                <option value="Advanced Degree">Advanced Degree</option>
                             </select>
                         </div>
+
+                        <br>
+
                         <div class="form-group">
+                            <label for="q5">Question 5 - What is your occupation?</label>
+                            <input type="text" class="form-control" id="q5" name="q5">
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                            <label for="q6">Question 6 - On a scale of 1- 10, how often do you have to reference multiple materials simultaneously in the course of your work? (1 being not at all and 10 being almost always)</label>
+                            <input type="number" class="form-control" id="q6" name="q6">
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                            <label for="q7">Question 7 - On a scale of 1-10, how often do you have to copy-paste material from several sources to collate into one document? (1 being not at all and 10 being almost always)</label>
+                            <input type="number" class="form-control" id="q7" name="q7">
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                            <label for="q8">Question 8 - Do you find yourself copying medium other than text often?</label>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="q8" id="optionsRadios7" value="Yes!">
+                                Yes!
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="q8" id="optionsRadios7" value="No, not often.">
+                                No, not often.
+                              </label>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                            <label for="q9">Question 9 - Other than the current way of copy-pasting text (either by keyboard shortcuts or mouse), what wishful way would you like to perform copy-paste?</label>
+                            <textarea name="q9" id="q9" rows="8" class="form-control" cols="80"></textarea>
+                            <!-- <input type="text"  id="q9" name="q9"> -->
+                        </div>
+                        <!-- <div class="form-group">
                             <label for="q5">Question 5 - Textarea</label>
                             <textarea class="form-control" id="q5" name="q5" placeholder="Enter response"></textarea>
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                     </form>
                 </div>

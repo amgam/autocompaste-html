@@ -35,59 +35,87 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h1>Post-Experiment Questionnaire</h1>
                     <hr>
-                    <p>This part of the interface collects whatever post-experiment information. After the experiment, you want to collect more qualitative and quantitative feedback about the tested techniques. Some of the typical questions include, personal preferences, any difficulties participants experienced in the experiment, and areas of improvement. Please design a basic post-experimental questionnaire (no more than 10 questions).</p>
+                    <p>Thank you for your participation! We would like to gather some feedback on your experience.</p>
 
                     <p>Current participant: <span class="js-pid pid"></span></p>
-
+                    <br>
                     <form id="post-expt-form">
+                      <div class="form-group">
+                          <label for="q1">Question 1 - What did you think of the timing of the entire section?</label>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="q1" id="optionsRadios1" value="radio1">
+                              Too short.
+                            </label>
+                          </div>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="q1" id="optionsRadios2" value="radio2">
+                              Just right!
+                            </label>
+                          </div>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="q1" id="optionsRadios3" value="radio3">
+                              Too long!
+                            </label>
+                          </div>
+                      </div>
+
+                      <br>
+
+                      <div class="form-group">
+                          <label for="q2">Question 2 - Rate the ease of use of the traditional (Ctrl-C, Ctrl-V) method on a scale of 1-5 (1 being hard to use and 5 being very easy)?</label>
+                          <input type="number" class="form-control" id="q2" name="q2">
+                      </div>
+
+                      <br>
+
+                      <div class="form-group">
+                          <label for="q3">Question 3 - Rate the ease of use of the AutoComPaste method on a scale of 1-5 (1 being hard to use and 5 being very easy)?</label>
+                          <input type="number" class="form-control" id="q3" name="q3">
+                      </div>
+
+                      <br>
+
+                      <div class="form-group">
+                          <label for="q4">Question 4 - What did you think of the timing of the entire section?</label>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="q4" id="optionsRadios1" value="radio1">
+                              Traditional (Ctrl-C, Ctrl-V)
+                            </label>
+                          </div>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="q4" id="optionsRadios2" value="radio2">
+                              AutoComPaste
+                            </label>
+                          </div>
+                      </div>
+
+                      <br>
                         <div class="form-group">
-                            <label for="q1">Question 1 - Text</label>
-                            <input type="text" class="form-control" id="q1" name="q1" placeholder="Enter answer">
+                            <label for="q5">Question 5 -	Was there any difficulties you faced in the traditional (Ctrl-C, Ctrl-V) task?</label>
+                            <input type="text" class="form-control" id="q5" name="q5" placeholder="Enter answer">
                         </div>
+
+                        <br>
+
                         <div class="form-group">
-                            <label for="q2">Question 2 - Radio</label>
-                            <div class="radio">
-                              <label>
-                                <input type="radio" name="q2" id="optionsRadios1" value="radio1">
-                                Radio response 1
-                              </label>
-                            </div>
-                            <div class="radio">
-                              <label>
-                                <input type="radio" name="q2" id="optionsRadios2" value="radio2">
-                                Radio response 2
-                              </label>
-                            </div>
+                            <label for="q6">Question 6 -	Was there any difficulties you faced in the AutoComPaste task?</label>
+                            <input type="text" class="form-control" id="q6" name="q6" placeholder="Enter answer">
                         </div>
+
+                        <br>
+
                         <div class="form-group">
-                            <label for="q3">Question 3 - Checkbox</label>
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox" name="q3" value="checkbox1">
-                                Checkbox response 1
-                              </label>
-                            </div>
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox" name="q3" value="checkbox2">
-                                Checkbox response 2
-                              </label>
-                            </div>
+                            <label for="q7">Question 7 - Do you have any feedback on how we could have improved the trials for you?</label>
+                            <textarea name="q7" id="q7" rows="8" class="form-control" cols="80"></textarea>
+                            <!-- <input type="text"  id="q9" name="q9"> -->
                         </div>
-                        <div class="form-group">
-                            <label for="q4">Question 4 - Select Options</label>
-                            <select class="form-control" name="q4">
-                                <option value="option1">Option response 1</option>
-                                <option value="option2">Option response 2</option>
-                                <option value="option3">Option response 3</option>
-                                <option value="option4">Option response 4</option>
-                                <option value="option1">Option response 5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="q5">Question 5 - Textarea</label>
-                            <textarea class="form-control" id="q5" name="q5" placeholder="Enter response"></textarea>
-                        </div>
+
+
                         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                     </form>
                 </div>
