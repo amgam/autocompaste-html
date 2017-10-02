@@ -122,6 +122,7 @@ var ACPToolKit = (function () {
               }
 
               $('.js-expt-stimuli').text(stimuli);
+              options.stimuli = stimuli;
 
               // Highlight the relevant text.
               iface.addEventListener('loaded', function () {
@@ -169,7 +170,7 @@ var ACPToolKit = (function () {
 
 function extractSentence(txt){ //Derived from stackoverflow
   sentences = txt.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
-  return sentences[getRandomInt(0, sentences.length)];
+  return sentences[getRandomInt(0, sentences.length - 1)];
 }
 
 function extractPhrase(txt){
@@ -177,7 +178,7 @@ function extractPhrase(txt){
   words = random_sentence.split(/[ ,]+/);
   words.pop();
   var random_length = getRandomInt(3,4);
-  var random_start = getRandomInt(0, words.length - random_length);
+  var random_start = getRandomInt(0, words.length - random_length - 1);
   words = words.slice(random_start, random_start + random_length);
   return words.join(' ');
 }

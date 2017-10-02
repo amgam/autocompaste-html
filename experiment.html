@@ -80,14 +80,15 @@
   var trialsData;
   var currentTrial;
   var totalNumberOfTrials;
-  var headers = ['Participant id', 'Technique', 'Granularity',
-  'Trial no', 'Stimuli', 'User Response', 'Trial Start Time',
-  'Trial End Time', 'Trial Time', 'Accuracy'];
+  var headers = ['pid', 'technique', 'granularity', 'numOfWindows',
+    'timesWindowClicked', 'trialNum', 'stimuli', 'userResponse',
+    'trialStartTime', 'trialEndTime', 'trialDuration', 'accuracy']
+
   var trialData = [];
   var pid;
   var timesWindowClicked = 0;
 
-  $(document).on('click','.wm-window',function() {
+  $(document).on('click','.modal-header',function() {
     timesWindowClicked++;
   });
 
@@ -104,12 +105,13 @@
       var trialStartTime = trialResult.start_time;
       var trialEndTime = trialResult.end_time;
       var trialDuration = trialResult.duration;
-      var accuracy = stimuli === userResponse ? 1 : 0;
+      var accuracy = stimuli === userResponse ? 1 : (stimuli.includes(userResponse) && userResponse !== "" ? 0.5 : 0);
 
       var row = [pid, technique, granularity, numOfWindows, timesWindowClicked, trialNum,
         stimuli, userResponse, trialStartTime,
         trialEndTime, trialDuration, accuracy];
         trialData.push(row);
+        timesWindowClicked = 0; // reset
       }
 
       if (currentTrial < totalNumberOfTrials) {
@@ -129,6 +131,7 @@
         currentTrial = 0;
         totalNumberOfTrials = trialsData.length;
         $('.js-expt-num-trials').text(totalNumberOfTrials);
+        // debugger;
         trialData.push(headers);
         next();
         pid = ACPToolKit.getCurrentParticipantId();
